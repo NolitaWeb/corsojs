@@ -1,0 +1,523 @@
+<HTML>
+Javascript &eacute; un linguaggio di programmazione che ha conosciuto negli ultimi tempi uno sviluppo e una diffusione senza precedenti.
+Nato come linguaggio di programmazione web, cio&eacute; da eseguire all'interno di un browser, con il tempo si &eacute; diffuso e ora viene
+utilizzato non solo per produrre applicazioni da utilizzare in questo ambito, ma anche per realizzare applicazioni per telefoni
+cellulari e desktop, cio&eacute; da utilizzare nel vostro sistema operativo preferito, Windows, Mac o Linux.
+Per seguire questa guida introduttiva non servono conoscenze particolari, solo basi di HTML e CSS e la voglia di imparare a programmare.
+E' possibile scrivere codice Javascript con qualunque editor di codice. Il consiglio &eacute; provare Visual Studio Code, disponibile a questo link: https://code.visualstudio.com/
+Fatto questo, per scrivere codice Javascript basta inserire in un normale file HTML il tag script: tutto quello che si trova all'interno sar&agrave; interpretato come codice Javascript.
+<pre>
+  <code>
+    &lt;script&gt;<br>
+    .....<br>
+    .....<br>
+    .....<br>
+    &lt;/script&gt;
+  </code>
+</pre>
+Abbiamo capito come inserire codice js nella nostra pagina, vediamo ora le basi del linguaggio. Anzitutto, impariamo ad utilizzare le variabili in js.
+Per dichiarare una variabile in js, utilizziamo il comando var seguito dal nome della variabile. <b><h6>IMPORTANTE:</h6></b> Prima di utilizzare una variabile
+per la prima volta, questa deve essere dichiarata! Se non lo farete, Javascript vi restituir&agrave; un errore, variabile non definita!<br>
+Ecco un esempio di come dichiarare una variabile in Javascript:<br>
+<pre>
+    <code>
+        var pippo;<br>
+    </code>
+</pre>
+E' possibile anche assegnare subito un valore alla variabile:<br>
+<pre>
+    <code>
+        var pippo = 10;
+    </code>
+</pre>
+Come in tutti i linguaggi di programmazione, anche in Javascript le variabili sono caratterizzate da un tipo. Le variabili in JS possono essere numeri, stringhe, boolean (possono avere solo due valori, vero e falso), null (che significa nessun valore) e undefined (valore non definito).<br>
+E' possibile assegnare subito un numero ad una variabile:<br>
+<pre>
+    <code>
+        var pippo = 10;
+    </code>
+</pre>
+Ed &eacute; possibile assegnare una stringa contenente lo stesso numero alla stessa variabile:<br>
+<pre>
+    <code>
+        var pippo = "10";
+    </code>
+</pre>
+In questo caso la differenza consiste nelle virgolette, che "spiegano" alla macchina come deve considerare il contenuto della variabile, se numero o lettera,
+<b><h6>IMPORTANTE:</h6></b>
+Spesso proprio i tipi di variabili sono causa di errori. Ad esempio, l'operatore + serve sia per unire tra loro diverse stringhe sia per unire diverse stringhe tra loro sia per fare le somme! Ad esempio:
+<pre>
+    <code>
+        var elemento1 = 10;
+        var elemento2 = 20;
+        var somma = elemento1 + elemento2;
+    </code>
+</pre>
+In questo caso somma avr&agrave; valore 30.<br>
+Al contrario in questo caso:
+<pre>
+    <code>
+        var elemento1 = "10";
+        var elemento2 = "20";
+        var somma = elemento1 + elemento2;
+    </code>
+</pre>
+Somma avr&agrave; come valore la stringa "1020". Verranno infatti unite due stringhe (in gergo tecnico, verr&agrave; effettuata la concatenazione di due stringhe).
+In Javascript si possono anche creare array (o vettori, oppure liste per chi viene da Python). Un esempio:
+<pre>
+    <code>
+        var giorniDellaSettimana = [
+	        "lunedì",
+	        "martedì",
+	        "mercoledì",
+	        "giovedì",
+	        "venerdì",
+	        "sabato",
+	        "domenica"];
+    </code>
+</pre>
+Come vedete, le liste funzionano come le altre variabili, con una particolarit&agrave;: l'elenco si apre e si chiude con le parentesi quadre [], e ogni variabile inserita &eacute; separata dalle altre dalla virgola.<br>
+Per accedere ad una singola posizione, basta scrivere nomevariabile[posizione]. Nel nostro esempio, per accedere al giorno martedì basta scrivere giorniDellaSettimana[2].
+<b><h6>IMPORTANTE:</h6></b>
+La posizione di un elemento all'interno di un array &eacute; detta indice. RICORDA: LA PRIMA POSIZIONE E' ZERO, NON 1!!!!!
+<h2> IF e condizioni</h2>
+Come tutti i linguaggi di programmazione che si rispettino, anche js utilizza le "istruzioni condizionali": un blocco di codice viene eseguito solo se si verifica una determinata condizione. Rendiamo tutto più chiaro con un esempio:
+<pre>
+    <code>
+        var pippo = 10;
+        if (pippo > 5) {
+	        var pluto = "test";
+        }
+    </code>
+</pre>
+In questo caso la condizione &eacute; verificata, e il codice tra le parentesi verr&agrave; eseguito, e verr&agrave; assegnato alla variabile pluto il valore "test".<br>
+E' possibile anche inserire un blocco di codice da eseguire qualora la condizione NON sia verificata, tramite l'istruzione ELSE. Vediamo un esempio:
+<pre>
+    <code>
+        var pippo = 10;
+        if (pippo &lt; 5) {
+	        var pluto = "valore1";
+        } else {
+            var pluto = "valore2";
+        }
+    </code>
+</pre>
+In questo caso la condizione non &eacute; verificata, e la variabile assumer&agrave; il valore "valore2".<br>
+Ora prova tu!!!!<br>
+<pre>
+    <code>
+        var pippo = "indovinello";
+        if (pippo == "indovinello") {
+	        var pluto = 10;
+        } else {
+            var pluto = 20;
+        }
+    </code>
+</pre>
+Che valore ha pluto?
+<input type="text" id="risposta1">
+<button onclick="if (document.getElementById('risposta1').value == 10) alert('risposta corretta!'); else  alert('riprova!');">Controlla la risposta!</button><br>
+In Javascript &eacute; anche possibile combinare diverse condizioni con gli operatori && (che corrispondono a and, per chi ha gi&agrave; incontrato questo operatore in altri linguaggi) e || (si possono ottenere su Windows con "shift" + "\", e corrispondono ad or).<br>
+Ad esempio:
+<pre>
+    <code>
+        var pippo = 10;
+        if (pippo &lt; 5 && pippo &lt; 12) {
+	        var pluto = "valore1";
+        } else {
+            var pluto = "valore2";
+        }
+    </code>
+</pre>
+In questo caso solo la prima condizione &eacute; verificata, dunque la variabile ha valore "valore2", ossia viene eseguito il blocco di codice contenuto nell'else.<br>
+Ma in questo caso:
+<pre>
+    <code>
+        var pippo = 10;
+        if (pippo &lt; 5 || pippo &lt; 12) {
+	        var pluto = "valore1";
+        } else {
+            var pluto = "valore2";
+        }
+    </code>
+</pre>
+La variabile ha valore "valore1", perch&eacute; ALMENO una delle due condizioni &eacute; verificata.<br>
+In questo caso veniva controllata una sola condizione. Ci sono pero' casi in cui diventa necessario controllarne diverse. In questo caso si può utilizzare l'istruzione switch...case. Vediamola insieme:<br>
+<pre>
+    <code>
+    var pippo = 7;
+    switch (pippo) {
+	    case 1:
+		    pluto = 1;
+	        break;
+	    case 7:
+		    pluto = 2;
+	        break;
+	    // ...
+	    default:
+            pluto = 3;
+	        break;
+    }
+    </code>
+</pre>
+In questo caso pluto avr&agrave; valore 2. La variabile viene infatti confrontata con le condizioni contenute nei diversi "case", e quando incontra quello "giusto", viene eseguito il codice contenuto.<br>
+Può però accadere che nessuna delle condizioni sia verificata. In questo caso, viene eseguito il blocco di istruzioni contenuto in "default". Ad esempio:
+<pre>
+    <code>
+    var pippo = 10;
+    switch (pippo) {
+	    case 1:
+		    pluto = 1;
+	        break;
+	    case 7:
+		    pluto = 2;
+	        break;
+	    // ...
+	    default:
+            pluto = 3;
+	        break;
+    }
+    </code>
+</pre>
+In questo caso, pluto avr&agrave; valore 3.<br>
+Ora prova tu!!!!<br>
+<pre>
+    <code>
+    var pippo = 15;
+    switch (pippo) {
+	    case 3:
+		    pluto = 1;
+	        break;
+	    case 10:
+		    pluto = 2;
+	        break;
+	    // ...
+	    default:
+            pluto = 3;
+	        break;
+    }
+    </code>
+</pre>
+Che valore ha pluto?
+<input type="text" id="risposta2">
+<button onclick="if (document.getElementById('risposta2').value == 3) alert('risposta corretta!'); else  alert('riprova!');">Controlla la risposta!</button><br>
+<h2>I cicli</h2>
+Non bastano però gli "IF" a definire un insieme di istruzioni un linguaggio di programmazione, servono anche i cicli!<br>
+Vediamone alcuni.<br>
+Il primo &eacute; il ciclo "while": le istruzioni vengono eseguite fino a quando la condizione &eacute; verificata. Un esempio:
+<pre>
+    <code>
+        var y = 1;
+        var i = 1;
+        while (i <= 4) {
+	        y = y + 2;
+	        i++;
+        }
+    </code>
+</pre>
+In questo caso, l'operazione viene eseguita 4 volte (con l'istruzione i++ il valore di i viene aumentato ogni volta di 1), e alla fine y avr&agrave; valore 9.<br>
+In questo secondo caso, però, l'operazione non viene mai eseguita, perch&eacute; la condizione non &eacute; mai verificata, e y rimane uguale a 1:
+<pre>
+    <code>
+        var y = 1;
+        var i = 5;
+        while (i <= 4) {
+	        y = y + 2;
+	        i++;
+        }
+    </code>
+</pre>
+C'&eacute; però un altro tipo di ciclo, che prevede l'operazione sia SEMPRE eseguita almeno una volta, anche qualora la condizione non sia mai verificata. &eacute; il DO WHILE. Vediamo la sintassi:
+<pre>
+    <code>
+        var y = 1;
+        var i = 5;
+        do {
+	        y = y + 2;
+	        i++;
+        }
+        while (i <= 4)
+    </code>
+</pre>
+In questo secondo caso, alla fine y avr&agrave; valore 3.
+Ora prova tu!!!!<br>
+<pre>
+    <code>
+        var y = 10;
+        var i = 1;
+        while (i < 4) {
+	        y = y + 10;
+	        i++;
+        }
+    </code>
+</pre>
+
+Che valore ha pluto?
+<input type="text" id="risposta3">
+<button onclick="if (document.getElementById('risposta3').value == 40) alert('risposta corretta!'); else alert('riprova!');">Controlla la risposta!</button><br>
+L'ultimo tipo di ciclo che vediamo &eacute; il ciclo for, che ha la seguente sintassi:<br>
+<pre>
+    <code>
+        for (inizializzazione; condizione; modifica) {
+	        // istruzioni
+        }
+    </code>
+</pre>
+Un piccolo esempio render&agrave; tutto più chiaro:
+<pre>
+    <code>
+        var y = 0;
+        for (i = 0; i < 4; i++) {
+	        Y = y + 1;
+        }
+    </code>
+</pre>
+In questo caso, alla fine y avr&agrave; valore 4. L'operazione verr&agrave; infatti eseguita 4 volte. La variabile i avr&agrave; valore iniziale 0, e verr&agrave; incrementata ogni volta fino a quando il suo valore sar&agrave; inferiore a 4. A quel punto il ciclo avr&agrave; termine.
+Ora prova tu!!!!<br>
+<pre>
+    <code>
+        var y = 0;
+        for (i = 0; i < 10; i++) {
+	        Y = y + 10;
+        }
+    </code>
+</pre>
+
+Che valore finale avr&agrave; y?
+<input type="text" id="risposta4">
+<button onclick="if (document.getElementById('risposta4').value == 100) alert('risposta corretta!'); else alert('riprova!');">Controlla la risposta!</button><br>
+Il ciclo for in Javascript offre una altra opportunit&agrave; fondamentale. E' infatti possibile utilizzarlo per scorrere tutti gli elementi di un array (o lista). Un esempio render&agrave; tutto più chiaro:<br>
+<pre>
+    <code>
+        var quantita = [12, 34, 45, 7, 19]; // definisco una variabile quantit&agrave;, che &eacute; un array (o lista).
+        var totale = 0; // definisco una seconda variabile, destinata a contenere la somma di tutti gli elementi della lista.
+        var indice; 
+        // Definisco una variabile denominata indice. A cosa serve? Semplice. Con il ciclo for in, la cui sintassi &eacute; for (variabileindice in variabilelista) {} <br>
+        // Javascript far&agrave; scorrere tutti gli elementi di una lista, assegnando di volta in volta alla variabile indice la posizione che un dato elemento occupa.
+        // E' quindi molto semplice ottenere tutti gli elementi uno alla volta, basta estrarre passo per passo l'elemento della lista in posizione indice.
+        for (indice in quantita) {
+	        totale = totale +  quantita[indice];
+        }
+    </code>
+</pre>
+Se non mi interessa la posizione di un elemento nella lista ma solo il suo valore, posso usare il ciclo for ... of.
+<pre>
+    <code>
+        var quantita = [12, 34, 45, 7, 19];
+        var totale = 0;
+        var valore;
+        for (valore of quantita) {
+	        totale = totale +  valore;
+        }
+    </code>
+</pre>
+In entrambi i casi, alla fine del ciclo la variabile totale assumer&agrave; identico valore. Come avrete notato, ho inserito dei commenti senza ricevere alcune messaggio di errore. Javascript interpreta infatti tutto quello che segue la doppia barra // come un commento.<br>
+Se si vogliono fare commenti di più righe, la sintassi &eacute; la seguente:
+/* apre il commento. Per chiuderlo basta scrivere */
+A volte si rende necessario interrompere un ciclo al verificarsi di determinate condizioni. E' possibile farlo con l'istruzione break. Ad esempio:<br>
+<pre>
+    <code>
+        var x=0;
+        while (1 == 1) {
+	        console.log(x);
+	        // condizione di uscita
+	        if (x > 100) break;
+            x++;
+        }
+    </code>
+</pre>
+In questo caso, il ciclo continuerebbe in eterno (la condizione 1 = 1 &eacute; sempre verificata). Ma se x supera 100, il break interrompe il ciclo e provoca la fine della esecuzione.
+<h2> Le funzioni </h2>
+Molte volte, in Javascript come in altri linguaggi, &eacute; utile e comodo riutilizzare parti di codice, ad esempio per compiti che devono essere svolti spesso con variabili diverse. E' possibile farlo con le funzioni:<br>
+Ecco un esempio:<br>
+<pre>
+    <code>
+        function somma(x, y) {
+            var z = x + y;
+            return z;
+        }
+        var totale = somma(2,3);
+    </code>
+</pre>
+In questo caso, viene definita una funzione somma e tra la parentesi rotonda vengono definite due variabili, x e y. Quando la funzione viene richiamata attraverso l'istruzione somma(2,3) <br>
+la prima variabile tra parentesi, ossia la variabile x, acquisisce il primo valore passato, ossia 2, mentre la seconda variabile, la variabile y, acquisisce il valore 3.<br>
+All'interno della funzione vengono poi eseguite operazioni, e la funzione restituisce il valore della variabile z tramite l'istruzione return z. A questo punto, la variabile totale acquisir&agrave; il valore della variabile restituita dalla funzione somma, ossia z.<br>
+E' possibile anche assegnare alla funzione dei valori di default, cio&eacute; dei valori che le variabili avranno qualora nessun valore venga passato quando la variabile viene richiamata. Vediamo un esempio:
+<pre>
+    <code>
+        function somma(x = 2, y = 3) {
+            var z = x + y;
+            return z;
+        }
+        var totale = somma();
+    </code>
+</pre>
+In questo caso, visto che non vengono passati valori, il valore finale di totale sar&agrave; 5, cio&eacute; la somma dei due valori di default.
+Ora prova tu!!!!<br>
+<pre>
+    <code>
+        function moltiplicazione(x,y) {
+            return x * y;
+        }
+        var totale = somma(3,5);
+    </code>
+</pre>
+Che valore ha totale?
+<input type="text" id="risposta1">
+<button onclick="if (document.getElementById('risposta1').value == 15) alert('risposta corretta!'); else  alert('riprova!');">Controlla la risposta!</button><br>
+<b><h6>IMPORTANTE:</h6></b>
+Le variabili definite all'interno di una funzione non valgono al fdi fuori della stessa, Javascript vi restituir&agrave; un errore, variabile non definita!<br>
+Ad esempio:
+<pre>
+    <code>
+        function moltiplicazione(x,y) {
+            return x * y;
+        }
+        var totale = somma(3,5);
+        alert(x);
+    </code>
+</pre>
+Restituir&agrave; valore undefined, perch&eacute; la variabile x non esiste al di fuori della funzione.<br>
+Javascript fornisce una serie di funzioni predefinite, utili per ottenere i nostri scopi in tempi brevi. Ecco le principali:<br>
+<h4>isNaN e isFinite</h4>
+La funzione isNaN() prende un argomento e restituisce true se il suo valore &eacute; NaN, cio&eacute; non &eacute; un valore numerico valido, false altrimenti.<br>
+isFinite() restituisce true se il valore del suo argomento &eacute; diverso da Infinity (infinito) e da NaN.
+<h4>parseInt e parseFloat</h4>
+Convertono una stringa rispettivamente in un numero intero e in un numero decimale.<br>
+<h2>Gli oggetti</h2>
+Le variabili più complesse che abbiamo visto finora sono gli array: elenchi di valori caratterizzati ognuno da una posizione e da un valore. C'&eacute; però un tipo di variabile più complesso ma molto utile ed utilizzato nella programmazione moderna: gli oggetti.<br>
+Ogni oggetto conterr&agrave; dati, detti propriet&agrave; e rappresentati da coppie di nome-valore, e funzionalit&agrave;, dette metodi e rappresentate da funzioni.<br>
+Un esempio render&agrave; tutto più chiaro. Supponiamo di voler memorizzare i nostri dati, ossia nome, cognome, e data di nascita. Potremmo usare una lista:<br>
+<pre>
+    <code>
+        var dati = ["Pierluigi","Zavaroni","28/3/1977"];
+    </code>
+</pre>
+Sebbene possibile, una simile conservazione &eacute; scomoda, perch&eacute; risulterebbe be presto impossibile (o comunque difficile) risalire a quale dato &eacute; il nome, quale il cognome e quale la data di nascita. Con un oggetto &eacute; molto più semplice, vediamo come:
+<pre>
+    <code>
+    var dati = {
+	    nome: "Pierluigi",
+	    cognome: "Zavaroni",
+	    nascita: "28/03/1977"
+    };
+    </code>
+</pre>
+Come si vede chiaramente, una sintassi molto chiara e pulita. E qualora si desideri accedere ad una delle propriet&agrave; (cio&eacute; dei dati) presenti? Anche in questo caso, la sintassi &eacute; semplice:<br>
+<pre>
+    <code>
+    var dati = {
+	    nome: "Pierluigi",
+	    cognome: "Zavaroni",
+	    nascita: "28/03/1977"
+    };
+    alert(dati.nome);
+    </code>
+</pre>
+In questo caso, riceveremo un messaggio con il nome contenuto all'interno della propriet&agrave;.
+<b><h6>IMPORTANTE:</h6></b> Contrariamente alle liste, quando si deve associare un valore ad una propriet&agrave; di un oggetto, si utilizzano i : e non il simbolo =<br>
+<br>
+Abbiamo visto però come un oggetto possa contenere anche delle funzioni, dette metodo dell'oggetto. Vediamo un esempio:
+<pre>
+    <code>
+    var dati = {
+	    x: 2,
+        y: 5,
+        function somma() { return 2 + 5; }
+	};
+    alert(dati.somma());
+    </code>
+</pre>
+In questo caso il valore stampato a video sar&agrave; 7.<br>
+E' anche possibile aggiungere propriet&agrave; o metodi ad un oggetto, tramite un procedimento detto definizione incrementale. Ecco un esempio:<br>
+<pre>
+    <code>
+    var dati = {
+	    nome: "Pierluigi",
+	    cognome: "Zavaroni",
+	    nascita: "28/03/1977"
+    };
+    dati.eta = 43;
+    </code>
+</pre>
+In questo caso, ho aggiunto una propriet&agrave; contenente il valore della mia et&agrave;, 43 anni.<br>
+In molti casi nel metodo di una variabile &eacute; comodo fare riferimento al valore corrente del valore di una propriet&agrave;. In questo caso, si utilizza la parola chiave this. Ecco un esempio:
+<pre>
+    <code>
+    var dati = {
+	    x: 2,
+        y: 5,
+        function somma() { return this.x + this.y; }
+	};
+    alert(dati.somma());
+    </code>
+</pre>
+E se volessi creare un altro oggetto? Nel nostro esempio, se volessi fare la somma di nuemri diversi da 2 e 5, senza cancellare l'oggetto esistente e senza riscrivere tutto? Un oggetto può essere "duplicato" assegnandolo ad una variabile. Ecco un esempio:<br>
+<pre>
+    <code>
+        var datipierluigi = {
+	        nome: "Pierluigi",
+	        cognome: "Zavaroni",
+	        nascita: "28/03/1977"
+        };
+        var datipietro = datipierluigi;
+        var datipietro = {
+	        nome: "Pietro",
+	        cognome: "Rossi",
+	        nascita: "21/07/1981"
+        };
+    </code>
+</pre>
+<h2> Il DOM </h2>
+Javascript può essere utilizzato per rendere dinamiche le nostre pagine in HTML, ossia per fare in modo le stesse vengano modificate, ad esempio, dall'azione dell'utente.<br>
+Per selezionare uno o più elementi di una pagina web, allo scopo di modificarli o estrarre dati, si possono usare le istruzioni (ma sarebbe meglio dire metodi predefiniti dell'oggetto document) document.getElementById e document.getElementsByClassName. Il primo seleziona l'elemento caratterizzato da un determinato id, il secondo tutti gli elementi con una determinata classe. Facciamo un esempio:<br>
+<pre>
+    <code>
+        &lt;p id="elemento1" class="classeprova"&gt;&lt;/p&gt;
+        &lt;p id="elemento2" class="classeprova"&gt;&lt;/p&gt;
+        var p = document.getElementById('elemento1');
+        var c = document.getElementsByClassName('classeprova');
+    </code>
+</pre>
+In questo caso, la variabile p conterr&agrave; elemento1, mentre la variabile c conterr&agrave; una lista di due elementi, nella posizione 0 conterr&agrave; infatti il paragrafo con id elemento1 e in posizione 1 il paragrafo con id elemento2.
+Molto spesso un elemento di HTML (un nodo) ne contiene a sua volta altri. Succede spesso ad esempio con i div, che sono solitamente uno dentro l'altro. Javascript ci permette di vedere e accedere a tutti gli elementi (i nodi) contenuti all'interno di quello che abbiamo selezionato. Ancora una volta tutto sar&agrave; più chiaro con un esempio:<br>
+<pre>
+    <code>
+        &lt;div id="DivPrincipale"&gt
+            &lt;p&gtParagrafo1&lt;/p&gt
+            &lt;p&gtPargarafo2&lt;/p&gt
+	        &lt;p&gtParagrafo3&lt;/p&gt
+        &lt;/div&gt
+        
+        &lt;script&gt
+            var divprincipale = document.getElementById("DivPrincipale");
+            for (var i = 0; i < divprincipale.childNodes.length; i++) {
+	            alert(divprincipale.childNodes[i].innerHTML);
+            }
+        &lt;/script&gt
+    </code>
+</pre>
+Esaminiamo il codice sopra. Prima di tutto, abbiamo un codice html con un div principale che racchiude al suo interno 3 paragrafi. Quindi con 
+getElementById abbiamo selezionato il div con id DivPrincipale. Abbiamo poi scelto di accedere ai nodi contenuti all'interno del div principale
+con childNodes, che ci permette di avere un array contenente tutti i nodi racchiusi nel nodo principale. Abbiamo poi utilizzato la propriet&agrave; lenght, che 
+contiene la lunghezza dell'array, per scorrere tutti gli elementi, andando di volta in volta a selezionare un nodo contenuto all'interno del div,
+tramite la sua posizione. La propriet&agrave; innerHTML ci restituisce il codice HTML contenuto all'interno del nodo. Qualora avessimo voluto cambiare il contenuto
+dei nodi, avremmo potuto agire nel modo seguente:
+<pre>
+    <code>
+        &lt;div id="DivPrincipale"&gt
+            &lt;p&gtParagrafo1&lt;/p&gt
+            &lt;p&gtPargarafo2&lt;/p&gt
+	        &lt;p&gtParagrafo3&lt;/p&gt
+        &lt;/div&gt
+        
+        &lt;script&gt
+            var divprincipale = document.getElementById("DivPrincipale");
+            for (var i = 0; i < divprincipale.childNodes.length; i++) {
+	            divprincipale.childNodes[i].innerHTML = "test";
+            }
+        &lt;/script&gt
+    </code>
+</pre>
+Alla fine del ciclo, tutti e tre i paragrafi conterrebbero la parola "test".
+</HTML>
